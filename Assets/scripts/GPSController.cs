@@ -14,9 +14,9 @@ public class GPSController : MonoBehaviour
     private IEnumerator Start()
     {
         // Set target coordinates for Alice Jennings Archibald Park
-        targetLatitude = /* Park's latitude */;
-        targetLongitude = /* Park's longitude */;
-
+        // Alice Jennings Archibald Park in New Brunswick, NJ. (40.4841199, -74.4694864)
+        targetLatitude = 40.4841199f;
+        targetLongitude = -74.4694864f;
         // Check if the device supports location services
         if (!Input.location.isEnabledByUser)
         {
