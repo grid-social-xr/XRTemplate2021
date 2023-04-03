@@ -5,6 +5,7 @@ public class ArrowController : MonoBehaviour
     public Transform cameraTransform;
     public GameObject[] destinations;
     public GameObject ArrowMesh;
+    public float yRotation = 0f;
 
     private int currentDestinationIndex = 0;
     private int nextDestinationIndex = 1;
@@ -28,8 +29,8 @@ public class ArrowController : MonoBehaviour
         // Get the direction vector from the camera to the target
         Vector3 targetDirection = targetTransform.position - cameraTransform.position;
 
-        // Calculate the rotation to point the arrow in the target direction
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        // Calculate the rotation to point the arrow in the target direction, and add the y rotation value
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection) * Quaternion.Euler(0f, yRotation, 0f);
 
         // Set the rotation of the arrow to point in the target direction
         transform.rotation = targetRotation;
